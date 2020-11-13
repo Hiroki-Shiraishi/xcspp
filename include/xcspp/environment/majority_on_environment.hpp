@@ -8,21 +8,20 @@
 namespace xcspp
 {
 
-    class MultiplexerEnvironment : public IEnvironment
+    class MajorityOnEnvironment : public IEnvironment
     {
     private:
-        const double m_minorityAcceptanceProbability;
+        const std::size_t m_length;
         std::vector<int> m_situation;
         bool m_isEndOfProblem;
         Random m_random;
 
     public:
         // Constructor
-        // (Set imbalanceLevel to higher than 0 for imbalanced multiplexer problems)
-        explicit MultiplexerEnvironment(std::size_t length, unsigned int imbalanceLevel = 0);
+        explicit MajorityOnEnvironment(std::size_t length);
 
         // Destructor
-        virtual ~MultiplexerEnvironment() = default;
+        virtual ~MajorityOnEnvironment() = default;
 
         // Returns current situation
         virtual std::vector<int> situation() const override;
